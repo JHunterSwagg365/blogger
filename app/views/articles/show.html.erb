@@ -1,6 +1,8 @@
 <h1><%= @article.title%></h1>
 <p><%= @article.body%></p>
-
+<h3>Comments (<%= @article.comments.size %>)</h3>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+<%= render partial: 'comments/form' %>
 <%= link_to "<< Go Back to article list", articles_path %>
 </br>
 <%= link_to "Delete Aricle", article_path(@article), 
@@ -8,3 +10,6 @@
 :confirm => "Are you sure?" %>
 </br>
 <%= link_to "Edit Article", edit_article_path(@article) %>
+
+
+
